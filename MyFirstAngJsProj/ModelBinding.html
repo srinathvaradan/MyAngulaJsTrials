@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <title>Hi</title>
+</head>
+<body>
+<div ng-controller='DemoController'>{{textValue}}
+<input type="text" ng-model="textValue">
+    <br/>
+<select ng-change="changeInput()" ng-model="selectEvent">
+    <option>-SELECT-</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+</select>
+    <br/>
+    <label>{{selectEvent}}</label>
+</div>
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+    function DemoController($scope){
+        $scope.textValue="Hi";
+        $scope.selectEvent='-SELECT-';
+        $scope.changeInput=function(){
+
+        };
+    }
+
+</script>
+</body>
+</html>
