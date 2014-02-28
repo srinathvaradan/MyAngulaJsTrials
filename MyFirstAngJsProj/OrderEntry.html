@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Order Entry</title>
+</head>
+<body>
+<div ng-app>
+    <div ng-controller="OrderEntryController">
+        <h1>{{OrderEntry}} - Curly</h1>
+        <h1 ng-bind="OrderEntry"></h1>
+            <div ng-repeat="order in OrderItems">
+              Name: {{order.OrderName}} <input type="text" ng-model="order.status" readonly/>
+                <select ng-model="selectEvent">
+                    <option>-SELECT-</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+                <input value="Add To BackPack" type="button" ng-click="OrderItem($index)"/>
+            </div>
+    </div>
+
+</div>
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+    function OrderEntryController($scope){
+        $scope.OrderEntry="Order Entry - Pharmacy";
+        $scope.OrderItems=[
+            {OrderName: "Abacavir",PriceOr1Item:80,status:""},
+            {OrderName: "Giagen Solution",PriceOr1Item:180,status:""},
+            {OrderName: "Dextrose",PriceOr1Item: 810,status:""},
+        ];
+        $scope.selectEvent='-SELECT-';
+        $scope.OrderItem=function(itemRef){
+            $scope.OrderItems[itemRef].status="Added";
+        }
+    }
+</script>
+</body>
+</html>
+
+
